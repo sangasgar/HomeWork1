@@ -38,6 +38,9 @@ public class Main {
         NumArrayOp(numArray2);
 
         //        5. ** Задать одномерный массив и найти в нем минимальный и максимальный элементы (без помощи интернета);
+        int []  number = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1, 0};
+        MaximumNumber(number);
+        MinimumNumber(number);
         //        6. ** Написать метод, в который передается не пустой одномерный целочисленный массив, метод должен
         //        вернуть true, если в массиве есть место, в котором сумма левой и правой части массива равны. Примеры: checkBalance([2, 2, 2, 1, 2, 2, || 10, 1]) → true, checkBalance([1, 1, 1, || 2, 1]) → true, граница показана символами ||, эти символы в массив не входят.
         //        7. **** Написать метод, которому на вход подается одномерный массив и число n (может быть положительным,
@@ -56,5 +59,28 @@ public class Main {
             }
             System.out.println();
         }
+    }
+    public static void MaximumNumber (int[] arr) {
+        int num = 0;
+        for (int i = 0; i < arr.length; i++){
+            if (arr[i] > num) {
+                num = arr[i];
+            }
+        }
+        System.out.printf("Максимальное число в массиве %5d ",num);
+        System.out.println();
+    }
+    public static void MinimumNumber (int[] arr) {
+        int num = 0;
+        for (int i = 0; i < arr.length; i++){
+                num = num + arr[i];
+        }
+        for (int i = 0; i < arr.length; i++){
+            if (arr[i] < num) {
+                num = arr[i];
+            }
+        }
+        System.out.printf("Минимальное число в массиве %5d ",num);
+        System.out.println();
     }
 }
