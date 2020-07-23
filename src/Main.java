@@ -42,7 +42,14 @@ public class Main {
         MaximumNumber(number);
         MinimumNumber(number);
         //        6. ** Написать метод, в который передается не пустой одномерный целочисленный массив, метод должен
-        //        вернуть true, если в массиве есть место, в котором сумма левой и правой части массива равны. Примеры: checkBalance([2, 2, 2, 1, 2, 2, || 10, 1]) → true, checkBalance([1, 1, 1, || 2, 1]) → true, граница показана символами ||, эти символы в массив не входят.
+        //        вернуть true, если в массиве есть место, в котором сумма левой и правой части массива равны.
+        //        Примеры: checkBalance([2, 2, 2, 1, 2, 2, || 10, 1]) → true, checkBalance([1, 1, 1, || 2, 1]) → true,
+        //        граница показана символами ||, эти символы в массив не входят.
+        int []  number1 = {2, 2, 2, 1, 2, 2, 10, 1};
+        System.out.print(NumberBool(number1));
+        int []  number2 = {3, 2, 2, 1, 2, 2, 10, 1};
+        System.out.println();
+        System.out.print(NumberBool(number2));
         //        7. **** Написать метод, которому на вход подается одномерный массив и число n (может быть положительным,
         //        или отрицательным), при этом метод должен сместить все элементымассива на n позиций. Для усложнения задачи
         //        нельзя пользоваться вспомогательными массивами.
@@ -82,5 +89,18 @@ public class Main {
         }
         System.out.printf("Минимальное число в массиве %5d ",num);
         System.out.println();
+    }
+    public static boolean NumberBool (int[] arr){
+        int score = 0;
+        boolean result;
+        for (int i = 0;  i < arr.length; i++) {
+            score = arr[i] + score;
+        }
+        if (score % 2 == 0) {
+            return result = true;
+        } else {
+            result = false;
+        }
+        return result;
     }
 }
