@@ -4,103 +4,17 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
-        //       1. Задать целочисленный массив, состоящий из элементов 0 и 1. Например:
-        //       [ 1, 1, 0, 0, 1, 0, 1, 1, 0, 0 ]. С помощью цикла и условия заменить 0 на 1, 1 на 0;
-        int[] num = { 1, 1, 0, 0, 1, 0, 1, 1, 0, 0 };
-        for(int i = 0; i < num.length; i++) {
-            if (num[i] ==  0) {
-                num[i] = 1;
-            } else if  (num[i] ==  1) {
-                num[i] = 0;
-            }
-        }
-        System.out.print(Arrays.toString(num));
-        System.out.println();
-        //       2. Задать пустой целочисленный массив размером 8. С помощью цикла заполнить его значениями 0 3 6 9 12 15 18 21;
-        int[] numArr = new int[8];
-        for (int i= 1; i < numArr.length; i ++){
-            numArr[i] = numArr[i-1] + 3;
-        }
-        System.out.println(Arrays.toString(numArr));
-
-        //       3. Задать массив [ 1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1 ] пройти по нему циклом, и числа меньшие 6 умножить на 2;
-        int[] numberArray = { 1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1  };
-        for (int i = 0; i < numberArray.length; i++) {
-            if (numberArray[i] < 6) {
-                numberArray[i] *= 2;
-            }
-        }
-        System.out.print(Arrays.toString(numberArray));
-        System.out.println();
-        //        4. Создать квадратный двумерный целочисленный массив (количество строк и столбцов одинаковое), и с
-        //        помощью цикла(-ов) заполнить его диагональные элементы единицами;
-        int[][] numArray2 = new int[5][5];
-        NumArrayOp(numArray2);
-
-        //        5. ** Задать одномерный массив и найти в нем минимальный и максимальный элементы (без помощи интернета);
-        int []  number = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1, 0};
-        MaximumNumber(number);
-        MinimumNumber(number);
-        //        6. ** Написать метод, в который передается не пустой одномерный целочисленный массив, метод должен
-        //        вернуть true, если в массиве есть место, в котором сумма левой и правой части массива равны.
-        //        Примеры: checkBalance([2, 2, 2, 1, 2, 2, || 10, 1]) → true, checkBalance([1, 1, 1, || 2, 1]) → true,
-        //        граница показана символами ||, эти символы в массив не входят.
-        int []  number1 = {2, 2, 2, 1, 2, 2, 10, 1};
-        System.out.print(NumberBool(number1));
-        int []  number2 = {3, 2, 2, 1, 2, 2, 10, 1};
-        System.out.println();
-        System.out.print(NumberBool(number2));
-        //        7. **** Написать метод, которому на вход подается одномерный массив и число n (может быть положительным,
-        //        или отрицательным), при этом метод должен сместить все элементымассива на n позиций. Для усложнения задачи
-        //        нельзя пользоваться вспомогательными массивами.
-    }
-    public static void NumArrayOp(int[][] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                if (i == j) {
-                    arr[i][j] = 1;
-                } else if (i + j ==  arr.length - 1) {
-                    arr[i][j] = 1;
-                }
-                System.out.printf("%5d", arr[i][j]);
-            }
-            System.out.println();
-        }
-    }
-    public static void MaximumNumber (int[] arr) {
-        int num = 0;
-        for (int i = 0; i < arr.length; i++){
-            if (arr[i] > num) {
-                num = arr[i];
-            }
-        }
-        System.out.printf("Максимальное число в массиве %5d ",num);
-        System.out.println();
-    }
-    public static void MinimumNumber (int[] arr) {
-        int num = 0;
-        for (int i = 0; i < arr.length; i++){
-                num = num + arr[i];
-        }
-        for (int i = 0; i < arr.length; i++){
-            if (arr[i] < num) {
-                num = arr[i];
-            }
-        }
-        System.out.printf("Минимальное число в массиве %5d ",num);
-        System.out.println();
-    }
-    public static boolean NumberBool (int[] arr){
-        int score = 0;
-        boolean result;
-        for (int i = 0;  i < arr.length; i++) {
-            score = arr[i] + score;
-        }
-        if (score % 2 == 0) {
-            return result = true;
-        } else {
-            result = false;
-        }
-        return result;
+//        1. Написать программу, которая загадывает случайное число от 0 до 9, и пользователю дается 3 попытки угадать это число. При каждой попытке компьютер должен сообщить больше ли указанное пользователем число чем загаданное, или меньше. После победы или проигрыша выводится запрос – «Повторить игру еще раз? 1 – да / 0 – нет»(1 – повторить, 0 – нет).
+//        2 * Создать массив из слов String[] words = {"apple", "orange", "lemon", "banana", "apricot", "avocado", "broccoli", "carrot", "cherry", "garlic", "grape", "melon", "leak", "kiwi", "mango", "mushroom", "nut", "olive", "pea", "peanut", "pear", "pepper", "pineapple", "pumpkin", "potato"};
+//       При запуске программы компьютер загадывает слово, запрашивает ответ у пользователя,
+//                сравнивает его с загаданным словом и сообщает правильно ли ответил пользователь. Если слово не угадано, компьютер показывает буквы которые стоят на своих местах.
+//                apple – загаданное
+//        apricot - ответ игрока
+//        ap############# (15 символов, чтобы пользователь не мог узнать длину слова)
+//        Для сравнения двух слов посимвольно, можно пользоваться:
+//        String str = "apple";
+//       str.charAt(0); - метод, вернет char, который стоит в слове str на первой позиции
+//        Играем до тех пор, пока игрок не отгадает слово
+//        Используем только маленькие буквы
     }
 }
