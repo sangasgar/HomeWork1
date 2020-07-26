@@ -14,7 +14,8 @@ public class Main {
     static int tries = 3;  // Количество попыток для разгадывания.
     static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-      gameRandomInt (num);
+            gameRandomInt (num);
+
 /**
  * 2 * Создать массив из слов String[] words = {"apple", "orange", "lemon", "banana", "apricot", "avocado", "broccoli", "carrot", "cherry", "garlic", "grape", "melon", "leak", "kiwi", "mango", "mushroom", "nut", "olive", "pea", "peanut", "pear", "pepper", "pineapple", "pumpkin", "potato"};
  * При запуске программы компьютер загадывает слово, запрашивает ответ у пользователя,
@@ -28,7 +29,13 @@ public class Main {
  * Играем до тех пор, пока игрок не отгадает слово
  * Используем только маленькие буквы
  */
+        String[] words = {"apple", "orange", "lemon", "banana", "apricot", "avocado", "broccoli", "carrot", "cherry", "garlic", "grape", "melon", "leak", "kiwi", "mango", "mushroom", "nut", "olive", "pea", "peanut", "pear", "pepper", "pineapple", "pumpkin", "potato"};
+        int indexWord = random.nextInt(words.length);
+        String word = words[indexWord]; // загаданное случайное слово
 
+//       char w = word.charAt(1);
+//       System.out.println(word + " " + w);
+        wordGame(word);
     }
 
 
@@ -69,4 +76,39 @@ public class Main {
                         }
                     } while (num == 1);
                   }
+     public static void wordGame (String word) {
+         System.out.println("Введите название фрукта на английском");
+         String wordUser = scanner.next();
+        do {
+            String result = "";
+            if (wordUser.equals(word)) {
+                System.out.println("Поздравляем вы выиграли. Загаданное слово: " + word);
+            } else if (!wordUser.equals(word)) {
+
+                for (int i = 0, j = 0; i < wordUser.length() && j < word.length(); i++, j ++) {
+
+                        char U= wordUser.charAt(i);
+                        char w = word.charAt(j);
+                        if (U == w) {
+                            result += U;
+                        } else if (U != w)  {
+                                      result += "#";
+                            }
+                }
+                if (15 - wordUser.length() != 0) {
+                    for (int i = 0; i < 15 - wordUser.length(); i++) {
+                        result += "#";
+                    }
+                }
+                System.out.println("Вы не угадали. Буквы которые совпали были открыты. Попробуйте еще раз");
+                System.out.println(result);
+                wordUser = scanner.next();
+                if (wordUser.equals(word)) {
+                    System.out.println("Поздравляем вы выиграли. Загаданное слово: " + word);
+                }
+            }
+        } while (!wordUser.equals(word));
+
 }
+}
+
