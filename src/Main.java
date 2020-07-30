@@ -156,9 +156,6 @@ public class Main {
         }
 
 
-        if (map[0][0] == c && map[1][0] == c && map[2][0] == c) {return true;}
-        if (map[0][1] == c && map[1][1] == c && map[2][1] == c) {return true;}
-        if (map[0][2] == c && map[1][2] == c && map[2][2] == c) {return true;}
         for (int i = 0; i < SIZE; i++) {
             if (map[i][0] == c) {
                 score += 1;
