@@ -30,4 +30,19 @@ public class Employeers {
 
     }
 
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public boolean infoBoolAge(int ageUser) {
+        if (age > ageUser) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
