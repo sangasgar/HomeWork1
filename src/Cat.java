@@ -2,9 +2,11 @@ public class Cat {
     private String name;
     private int defaultEatCat = 20;
     private boolean satiety;
+    private int appetit;
     private int theAmountofCatFood;
-    public Cat (String name) {
+    public Cat (String name, int appetit) {
         this.name = name;
+        this.appetit = appetit;
     }
     public String getName() {
         return name;
@@ -22,16 +24,16 @@ public class Cat {
     }
 
     public void eat (Plate plate) {
-        if (plate.getFood() > defaultEatCat) {
-            plate.setFood(plate.getFood()-defaultEatCat);
-            theAmountofCatFood = defaultEatCat;
+        if (plate.getFood() > appetit) {
+            plate.decreaseFood(appetit);
+            theAmountofCatFood = appetit;
         } else {
             System.out.println("В тарелке недостаточно еды");
         }
 
     }
     public boolean isSatiety () {
-        if (theAmountofCatFood == defaultEatCat) {
+        if (theAmountofCatFood == appetit) {
             satiety = false;
         } else {
             satiety = true;

@@ -28,4 +28,7 @@ public class Plate {
         }
         System.out.println("В тарелке " + this.food);
     }
+    public void decreaseFood(int amount) {
+        food = food - amount;
+    }
 }
